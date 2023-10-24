@@ -22,4 +22,10 @@ RSpec.describe Comment, type: :model do
     subject.text = ''
     expect(subject).not_to be_valid
   end
+
+  it 'updates comments_counter' do
+    subject.save
+    subject.update_comments_counter
+    expect(post.comments_counter).to eq(1)
+  end
 end
