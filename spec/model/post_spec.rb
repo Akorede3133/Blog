@@ -7,6 +7,7 @@ RSpec.describe Post, type: :model do
   end
 
   before { subject.save }
+  
   it 'is valid with the required attributes' do
     expect(subject).to be_valid
   end
@@ -34,5 +35,15 @@ RSpec.describe Post, type: :model do
   it 'updates posts_counter' do
     subject.update_posts_counter
     expect(user.posts_counter).to eq(1)
+  end
+
+  it 'returns most recent comments' do
+    Comment.create(user:, post: subject, text: 'This is the comment')
+    Comment.create(user:, post: subject, text: 'This is the comment')
+    Comment.create(user:, post: subject, text: 'This is the comment')
+    Comment.create(user:, post: subject, text: 'This is the comment')
+    Comment.create(user:, post: subject, text: 'This is the comment')
+    comments = subject.most_recent_comments
+    expect(comments.length).to eq(5)
   end
 end
