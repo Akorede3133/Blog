@@ -23,4 +23,12 @@ RSpec.describe User, type: :model do
     subject.posts_counter = -1
     expect(subject).not_to be_valid
   end
+
+  it 'returns three most recents post' do
+    Post.create(author: subject, title: 'My first post', text: 'Content of my post', comments_counter: 0, likes_counter: 0)
+    Post.create(author: subject, title: 'My first post', text: 'Content of my post', comments_counter: 0, likes_counter: 0)
+    Post.create(author: subject, title: 'My first post', text: 'Content of my post', comments_counter: 0, likes_counter: 0)
+    returned_posts = subject.most_recent_posts
+    expect(returned_posts.length).to eq(3)
+  end
 end
