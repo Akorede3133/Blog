@@ -8,4 +8,9 @@ RSpec.describe User, type: :model do
   it 'is valid with the required attributes' do
     expect(subject).to be_valid
   end
+
+  it 'is not valid without name' do
+    subject.name = nil
+    expect(subject).not_to be_valid
+  end
 end
