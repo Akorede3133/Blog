@@ -26,7 +26,8 @@ RSpec.describe User, type: :model do
 
   it 'returns three most recents post' do
     10.times do
-      Post.create(author: subject, title: 'My first post', text: 'Content of my post', comments_counter: 0, likes_counter: 0)
+      Post.create(author: subject, title: 'My first post', text: 'Content of my post', comments_counter: 0,
+                  likes_counter: 0)
     end
     returned_posts = subject.most_recent_posts
     expect(returned_posts.length).to eq(3)
