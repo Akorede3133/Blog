@@ -10,4 +10,9 @@ RSpec.describe Comment, type: :model do
   it 'is valid with the required attributes' do
     expect(subject).to be_valid
   end
+
+  it 'is not valid without text' do
+    subject.text = nil
+    expect(subject).not_to be_valid
+  end
 end
