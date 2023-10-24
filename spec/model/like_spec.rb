@@ -10,7 +10,14 @@ RSpec.describe Like, type: :model do
     Like.new(user:, post:)
   end
 
+  before { subject.save }
+
   it 'is valid with the required attributes' do
     expect(subject).to be_valid
+  end
+
+  it 'updates likes counter' do
+    subject.update_likes_counter
+    expect(post.likes_counter).to eq(1)
   end
 end

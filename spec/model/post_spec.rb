@@ -7,7 +7,7 @@ RSpec.describe Post, type: :model do
   end
 
   before { subject.save }
-  
+
   it 'is valid with the required attributes' do
     expect(subject).to be_valid
   end
@@ -38,11 +38,9 @@ RSpec.describe Post, type: :model do
   end
 
   it 'returns most recent comments' do
-    Comment.create(user:, post: subject, text: 'This is the comment')
-    Comment.create(user:, post: subject, text: 'This is the comment')
-    Comment.create(user:, post: subject, text: 'This is the comment')
-    Comment.create(user:, post: subject, text: 'This is the comment')
-    Comment.create(user:, post: subject, text: 'This is the comment')
+    10.times do
+      Comment.create(user:, post: subject, text: 'This is the comment')
+    end
     comments = subject.most_recent_comments
     expect(comments.length).to eq(5)
   end
