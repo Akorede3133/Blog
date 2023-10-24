@@ -15,4 +15,9 @@ RSpec.describe Comment, type: :model do
     subject.text = nil
     expect(subject).not_to be_valid
   end
+
+  it 'is not valid when text length is less than 1' do
+    subject.text = ''
+    expect(subject).not_to be_valid
+  end
 end
