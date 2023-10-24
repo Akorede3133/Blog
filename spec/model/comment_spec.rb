@@ -9,6 +9,8 @@ RSpec.describe Comment, type: :model do
     Comment.new(user:, post:, text: 'This is the comment')
   end
 
+  before { subject.save }
+
   it 'is valid with the required attributes' do
     expect(subject).to be_valid
   end
@@ -24,7 +26,6 @@ RSpec.describe Comment, type: :model do
   end
 
   it 'updates comments_counter' do
-    subject.save
     subject.update_comments_counter
     expect(post.comments_counter).to eq(1)
   end
