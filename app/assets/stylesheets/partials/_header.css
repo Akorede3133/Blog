@@ -1,6 +1,18 @@
 header {
-  background-color: blue;
+  background-color: rgb(206, 188, 188);
+  box-shadow: 2px 1px rgba(0, 0, 0, 0.2);
   padding: 1rem;
   color: #fff;
   font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header a {
+  font-size: 1.3rem;
+}
+
+header a:hover {
+  color: red;
 }
