@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+@import 'partials/user_list';
+@import 'components/show';
+@import 'components/index';

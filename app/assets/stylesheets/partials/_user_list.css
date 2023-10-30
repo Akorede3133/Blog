@@ -1,0 +1,29 @@
+.flex--list {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.image--container {
+  border: 1px solid #000;
+  width: 150px;
+  height: 150px;
+}
+
+.user--info--container {
+  border: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.user--info--container p {
+  display: flex;
+  font-size: 1.2rem;
+  gap: 0.5rem;
+  align-self: flex-end;
+}
+
+.user--info--container h3 {
+  font-size: 2rem;
+}
