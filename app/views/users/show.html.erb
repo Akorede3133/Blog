@@ -1,25 +1,16 @@
 <section class="details--container">
   <article class="first--box">
     <section class="user--info">
-       <%= render 'user_list' %>
+      <%= render 'user_list', user: @user %>
     </section>
     <section class="bio--container">
       <h5>Bio</h5>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-        Harum et quae consequuntur, cupiditate earum vel molestiae d
-        electus officia nostrum quibusdam suscipit facere dolorum 
-        excepturi odit ut dolores vitae magni, fugit corporis in facilis tempore 
-        necessitatibus. Maxime pariatur, alias quae sint 
-        exercitationem fuga ipsa voluptatibus! 
-        Esse ab facere reiciendis beatae doloribus.
-      </p>
+      <p><%= @user.bio %></p>
     </section>
     <ul class="post--list">
-      <%= render 'posts/post_list' %>
-      <%= render 'posts/post_list' %>
-      <%= render 'posts/post_list' %>
-      <%= render 'posts/post_list' %>
-      <%= render 'posts/post_list' %>
+      <% @user.posts.each do |post| %>
+        <%= render 'posts/post_list', post: post %>
+      <% end %>
     </ul>
   </article>
   <button class="btn">See all posts</button>

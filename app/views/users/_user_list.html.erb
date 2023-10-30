@@ -1,12 +1,14 @@
+<%= link_to user_path(user) do %>
 <li class="flex--list">
   <article class="image--container">
-    <%=image_tag "" %>
+    <%= image_tag user.photo, alt: "#{user.name}'s Photo" %>
   </article>
   <article class="user--info--container">
-    <h3>Username</h3>
+    <h3><%= user.name %></h3>
     <p>
       <span>Number of posts:</span>
-      <span>x</span>
+      <span><%= user.posts.count %></span>
     </p>
   </article>
 </li>
+<% end %>

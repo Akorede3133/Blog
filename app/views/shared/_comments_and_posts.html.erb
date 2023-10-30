@@ -1,10 +1,10 @@
  <li class="comments--and--posts--list">
-  <%= render 'post_list' %>
+  <%= render 'post_list', post: post %>
   <section>
     <ul class="comments--container">
-      <%= render 'comment' %>
-      <%= render 'comment' %>
-      <%= render 'comment' %>
+      <% post.comments.each do |comment| %>
+        <%= render 'comment', comment: comment %>
+      <% end %>
     </ul>
   </section>
 </li>

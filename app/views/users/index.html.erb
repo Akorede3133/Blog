@@ -1,14 +1,7 @@
 <main>
   <ul class="users--list">
-    <%= render 'user_list' %>
-    <%= render 'user_list' %>
-    <%= render 'user_list' %>
-    <%= render 'user_list' %>
-    <%= render 'user_list' %>
-    <%= render 'user_list' %>
-    <%= render 'user_list' %>
-    <%= render 'user_list' %>
-    <%= render 'user_list' %>
-    <%= render 'user_list' %>
+    <% @users.each do |user|  %>
+      <%= render 'user_list', user: user %>
+    <% end %>
   </ul>
 </main>

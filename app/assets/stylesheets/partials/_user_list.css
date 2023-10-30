@@ -1,6 +1,7 @@
 .flex--list {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 0.5fr 2fr;
+  gap: 2rem;
 }
 
 .image--container {
