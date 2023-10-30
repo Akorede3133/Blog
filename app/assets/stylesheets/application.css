@@ -16,6 +16,7 @@
 
 @import 'partials/user_list';
 @import 'partials/post_list';
+@import 'partials/header';
 @import 'components/show';
 @import 'components/index';
 @import 'components/post_show';

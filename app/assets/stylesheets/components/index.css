@@ -11,8 +11,14 @@ body {
 }
 
 .container {
-  width: 90%;
+  width: 95%;
   margin: 10px auto;
+}
+
+.users--list {
+  display: grid;
+  gap: 1rem;
+  padding: 2rem 0;
 }
 
 ul {
