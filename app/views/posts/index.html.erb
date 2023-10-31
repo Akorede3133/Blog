@@ -4,10 +4,16 @@
       <%= render 'users/user_list', user: User.find(params[:user_id]) %>
     </section>
     <ul class='comments--posts--container'>
-      <% @posts.each do |post| %>
-        <%= render 'shared/comments_and_posts', post: post%>
+      <% if @posts.count > 0 %>
+        <% @posts.each do |post| %>
+          <%= render 'shared/comments_and_posts', post: post%>
+        <% end %>
+      <% else %>
+        <h3>This user has no post at the moment</h3>
       <% end %>
     </ul>
   </article>
-  <button class="btn">Pagination</button>
+  <div class="btn--container">
+    <button class="btn">Pagination</button>
+  </div>
 </section>

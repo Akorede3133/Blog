@@ -12,7 +12,7 @@ body {
 
 .container {
   width: 95%;
-  margin: 10px auto;
+  margin: 20px auto;
 }
 
 .users--list {
@@ -23,4 +23,8 @@ body {
 
 ul {
   list-style: none;
+}
+
+a {
+  text-decoration: none;
 }

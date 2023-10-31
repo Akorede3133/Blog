@@ -2,8 +2,12 @@
   <%= render 'post_list', post: post %>
   <section>
     <ul class="comments--container">
-      <% post.comments.each do |comment| %>
-        <%= render 'comment', comment: comment %>
+      <% if post.comments.count > 0 %>
+        <% post.comments.each do |comment| %>
+          <%= render 'comment', comment: comment %>
+        <% end %>
+      <% else %>
+        <h3>This post has no comment at the moment<h3>
       <% end %>
     </ul>
   </section>
