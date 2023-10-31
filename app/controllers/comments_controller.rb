@@ -4,9 +4,9 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
     @comment.user = current_user
 
-    if @comment.save
-      redirect_to user_post_path(current_user, @post)
-    end
+    return unless @comment.save
+
+    redirect_to user_post_path(current_user, @post)
   end
 
   private

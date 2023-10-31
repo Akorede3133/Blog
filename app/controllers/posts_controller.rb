@@ -14,10 +14,10 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      flash[:success] = "Post created successfully!"
+      flash[:success] = 'Post created successfully!'
       redirect_to user_post_path(current_user, @post)
     else
-      flash.now[:error] = "Post was not created!"
+      flash.now[:error] = 'Post was not created!'
       render :new, status: :unprocessable_entity
     end
   end

@@ -7,10 +7,11 @@
   display: flex;
   justify-content: space-between;
 }
+
 .post--content {
   padding: 1rem 0;
 }
+
 .like--container {
   margin-top: 20px;
-  
 }

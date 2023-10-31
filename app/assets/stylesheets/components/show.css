@@ -34,7 +34,8 @@
   gap: 0.5rem;
 }
 
-.like--btn, .dislike--btn {
+.like--btn,
+.dislike--btn {
   color: rgb(223, 216, 216);
   padding: 10px 20px;
   border: 1px solid red;
@@ -50,18 +51,13 @@
   color: red;
 }
 
-
-
-.like--btn::before, .dislike--btn::before {
-  content: '\2764'; 
+.like--btn::before,
+.dislike--btn::before {
+  content: '\2764';
   font-size: 24px;
   display: block;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.post--content {
-;
 }
