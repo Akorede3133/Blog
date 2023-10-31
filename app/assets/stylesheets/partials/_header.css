@@ -16,3 +16,8 @@ header a {
 header a:hover {
   color: red;
 }
+
+.header--link {
+  display: flex;
+  gap: 1rem;
+}

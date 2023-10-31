@@ -9,8 +9,14 @@
     </section>
     <section class="post--content">
       <p><%= @post.text %></p>
-      <%= button_to "Like", user_post_likes_path(current_user, @post), data: { turbo_method: :post }, class: "btn" %>
     </section>
+    <div class="like--container">
+      <% if user_already_liked?(@post, current_user) %>
+        <%= button_to "", user_post_like_path(current_user, @post, find_like(@post, current_user)), method: :delete, class: "dislike--btn" %>
+      <% else %>
+        <%= button_to '', user_post_likes_path(current_user, @post), data: { turbo_method: :post }, class: "like--btn" %>
+      <% end %>
+</div>
   </article>
   <article>
      <ul class="comments--container">
