@@ -1,0 +1,15 @@
+<li class="flex--list">
+  <article class="image--container">
+    <%= image_tag user.photo, alt: "#{user.name}'s Photo" %>
+  </article>
+  <article class="user--info--container">
+    <h3><%= user.name %></h3>
+    <div class="flex--bottom">
+      <%= link_to 'view profile', user_path(user) %>
+      <p>
+        <span>Number of posts:</span>
+        <span><%= user.posts.count %></span>
+      </p>
+    </div>
+  </article>
+</li>

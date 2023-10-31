@@ -1,0 +1,13 @@
+.post--box {
+  border: 1px solid #000;
+  padding: 1rem;
+}
+
+.post--box--header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post--content {
+  margin: 20px 0;
+}

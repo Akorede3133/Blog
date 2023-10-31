@@ -1,0 +1,35 @@
+.user--info {
+  margin: 10px 0;
+}
+
+.bio--container {
+  border: 1px solid #000;
+  display: grid;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.first--box {
+  min-height: 100vh;
+}
+
+.btn--container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 15px 20px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: capitalize;
+  background-color: #cebcbc;
+  border-radius: 5px;
+}
+
+.likes--and--comments {
+  display: flex;
+  gap: 0.5rem;
+}

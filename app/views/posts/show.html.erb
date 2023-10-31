@@ -1,1 +1,25 @@
-<h1>Here is the details of a post for a given user</h1>
+<section>
+  <article class="post--box">
+    <section class="post--box--header">
+      <p><%= @post.title %> by <%= @post.author.name %></p>
+      <div class="likes--and--comments">
+        <span>Comments: <%= @post.comments_counter %></span>
+        <span>Likes: <%= @post.likes_counter %></span>
+      </div>
+    </section>
+    <section class="post--content">
+      <p><%= @post.text %></p>
+    </section>
+  </article>
+  <article>
+     <ul class="comments--container">
+      <% if @post.comments.count > 0 %>
+        <% @post.comments.each do |comment| %>
+          <%= render 'comment', comment: comment %>
+        <% end %>
+      <% else %>
+        <h3>This post has no comment at the moment<h3>
+      <% end %>
+    </ul>
+  </article>
+</section>

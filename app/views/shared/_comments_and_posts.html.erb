@@ -1,0 +1,14 @@
+ <li class="comments--and--posts--list">
+  <%= render 'post_list', post: post, user: user %>
+  <section>
+    <ul class="comments--container">
+      <% if post.comments.count > 0 %>
+        <% post.most_recent_comments.each do |comment| %>
+          <%= render 'comment', comment: comment %>
+        <% end %>
+      <% else %>
+        <h3>This post has no comment at the moment<h3>
+      <% end %>
+    </ul>
+  </section>
+</li>

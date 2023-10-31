@@ -1,1 +1,23 @@
-<h1>This is the detail page for a single user</h1>
+<section class="details--container">
+  <article class="first--box">
+    <section class="user--info">
+      <%= render 'user_list', user: @user %>
+    </section>
+    <section class="bio--container">
+      <h5>Bio</h5>
+      <p><%= @user.bio %></p>
+    </section>
+    <ul class="post--list">
+       <% if @user.posts.count > 0 %>
+        <% @user.most_recent_posts.each do |post| %>
+          <%= render 'posts/post_list', user: @user, post: post %>
+        <% end %>
+      <% else %>
+        <h3>This user has no post at the moment</h3>
+      <% end %>
+    </ul>
+  </article>
+  <div class="btn--container">
+     <%= link_to 'See all posts', user_posts_path(@user), class: 'btn' %>
+  </div>
+</section>

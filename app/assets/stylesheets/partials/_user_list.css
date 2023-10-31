@@ -1,0 +1,34 @@
+.flex--list {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr;
+  gap: 2rem;
+}
+
+.image--container {
+  border: 1px solid #000;
+  width: 150px;
+  height: 150px;
+}
+
+.user--info--container {
+  border: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.user--info--container h3 {
+  font-size: 2rem;
+  padding-top: 1.5rem;
+}
+
+.flex--bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex--bottom a {
+  font-size: 1rem;
+  text-transform: capitalize;
+}

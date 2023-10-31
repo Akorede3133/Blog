@@ -1,1 +1,19 @@
-<h1>Here is a list of posts for a given user</h1>
+<section class="posts--container">
+  <article class="first--box">
+    <section>
+      <%= render 'users/user_list', user: User.find(params[:user_id]) %>
+    </section>
+    <ul class='comments--posts--container'>
+      <% if @posts.count > 0 %>
+        <% @posts.each do |post| %>
+          <%= render 'shared/comments_and_posts', post: post, user: User.find(params[:user_id]) %>
+        <% end %>
+      <% else %>
+        <h3>This user has no post at the moment</h3>
+      <% end %>
+    </ul>
+  </article>
+  <div class="btn--container">
+    <%= link_to 'Pagination', '#', class: 'btn' %>
+  </div>
+</section>
