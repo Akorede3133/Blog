@@ -10,7 +10,7 @@
     <ul class="post--list">
        <% if @user.posts.count > 0 %>
         <% @user.most_recent_posts.each do |post| %>
-          <%= render 'posts/post_list', post: post %>
+          <%= render 'posts/post_list', user: @user, post: post %>
         <% end %>
       <% else %>
         <h3>This user has no post at the moment</h3>
@@ -20,5 +20,4 @@
   <div class="btn--container">
      <%= link_to 'See all posts', user_posts_path(@user), class: 'btn' %>
   </div>
-  <%# <b class="btn">See all posts</b> %>
 </section>

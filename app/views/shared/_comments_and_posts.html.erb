@@ -1,9 +1,9 @@
  <li class="comments--and--posts--list">
-  <%= render 'post_list', post: post %>
+  <%= render 'post_list', post: post, user: user %>
   <section>
     <ul class="comments--container">
       <% if post.comments.count > 0 %>
-        <% post.comments.each do |comment| %>
+        <% post.most_recent_comments.each do |comment| %>
           <%= render 'comment', comment: comment %>
         <% end %>
       <% else %>

@@ -16,6 +16,7 @@
 .btn--container {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .btn {
@@ -26,4 +27,9 @@
   text-transform: capitalize;
   background-color: #cebcbc;
   border-radius: 5px;
+}
+
+.likes--and--comments {
+  display: flex;
+  gap: 0.5rem;
 }

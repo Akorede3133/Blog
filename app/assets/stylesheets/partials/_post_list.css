@@ -5,15 +5,21 @@
 }
 
 .post--item {
-  padding: 1rem;
   display: grid;
-  gap: 1rem;
+  gap: 2rem;
+  padding: 4px 10px 10px 10px;
   border: 1px solid #000;
 }
 
 .likes--and--comments {
   display: flex;
-  align-items: center;
-  justify-self: end;
+  justify-content: space-between;
+}
+.likes--and--comments  p {
+  display: flex;
   gap: 1rem;
+}
+.likes--and--comments a {
+  font-size: 1rem;
+  text-transform: capitalize;
 }

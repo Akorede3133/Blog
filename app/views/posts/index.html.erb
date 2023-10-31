@@ -6,7 +6,7 @@
     <ul class='comments--posts--container'>
       <% if @posts.count > 0 %>
         <% @posts.each do |post| %>
-          <%= render 'shared/comments_and_posts', post: post%>
+          <%= render 'shared/comments_and_posts', post: post, user: User.find(params[:user_id]) %>
         <% end %>
       <% else %>
         <h3>This user has no post at the moment</h3>
@@ -14,6 +14,6 @@
     </ul>
   </article>
   <div class="btn--container">
-    <button class="btn">Pagination</button>
+    <%= link_to 'Pagination', '#', class: 'btn' %>
   </div>
 </section>
