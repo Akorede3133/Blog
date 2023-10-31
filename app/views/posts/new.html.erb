@@ -1,4 +1,9 @@
 <%= form_with model: [current_user, current_user.posts.build], url: user_posts_path(current_user) do |f| %>
+  <% if @post.errors.any? %>
+    <% @post.errors.full_messages.each do |msg| %>
+      <p><%= msg %></p>
+    <% end %>
+  <% end %>
   <div>
     <%= f.label :title %><br>
     <%= f.text_field :title%>
