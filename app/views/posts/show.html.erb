@@ -19,6 +19,7 @@
 </div>
   </article>
   <article>
+    <h2>Comments</h2>
      <ul class="comments--container">
       <% if @post.comments.count > 0 %>
         <% @post.comments.each do |comment| %>
@@ -30,7 +31,7 @@
     </ul>
     <%= form_with model: [@post, @post.comments.build], url: user_post_comments_path(current_user, @post) do |f| %>
       <div>
-        <%= f.label :text %><br>
+        <%= f.label :text,  'Add comment' %><br>
         <%= f.text_field :text%>
       </div>
       <div>
