@@ -21,5 +21,14 @@
         <h3>This post has no comment at the moment<h3>
       <% end %>
     </ul>
+    <%= form_with model: [@post, @post.comments.build], url: user_post_comments_path(current_user, @post) do |f| %>
+      <div>
+        <%= f.label :text %><br>
+        <%= f.text_field :text%>
+      </div>
+      <div>
+        <%= f.submit "Add comment" %>
+      </div>
+    <% end %>
   </article>
 </section>
