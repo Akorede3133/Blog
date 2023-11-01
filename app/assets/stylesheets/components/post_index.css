@@ -9,5 +9,9 @@
 }
 
 .post--content {
-  margin: 20px 0;
+  padding: 1rem 0;
+}
+
+.like--container {
+  margin-top: 20px;
 }

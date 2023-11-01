@@ -10,8 +10,16 @@
     <section class="post--content">
       <p><%= @post.text %></p>
     </section>
+    <div class="like--container">
+      <% if user_already_liked?(@post, current_user) %>
+        <%= button_to "", user_post_like_path(current_user, @post, find_like(@post, current_user)), method: :delete, class: "dislike--btn" %>
+      <% else %>
+        <%= button_to '', user_post_likes_path(current_user, @post), data: { turbo_method: :post }, class: "like--btn" %>
+      <% end %>
+</div>
   </article>
   <article>
+    <h2>Comments</h2>
      <ul class="comments--container">
       <% if @post.comments.count > 0 %>
         <% @post.comments.each do |comment| %>
@@ -21,5 +29,14 @@
         <h3>This post has no comment at the moment<h3>
       <% end %>
     </ul>
+    <%= form_with model: [@post, @post.comments.build], url: user_post_comments_path(current_user, @post) do |f| %>
+      <div>
+        <%= f.label :text,  'Add comment' %><br>
+        <%= f.text_field :text%>
+      </div>
+      <div>
+        <%= f.submit "Add comment" %>
+      </div>
+    <% end %>
   </article>
 </section>
