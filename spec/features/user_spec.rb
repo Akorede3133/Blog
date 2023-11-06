@@ -59,20 +59,28 @@ RSpec.describe 'User', type: :feature do
       visit user_path(user)
       expect(page).to have_content("#{user.bio}")
     end
-
-    it "show user's first three posts" do
+    it 'displays the first three posts and a "Show All" button' do
       user = User.first
+      posts = user.most_recent_posts
       visit user_path(user)
-      if user.posts_counter == 0
-      expect(page).to have_content('This user has no post at the moment')
-      elsif user.posts_counter > 0 && < 3 
-        user.posts.each do |post|
-          expect(page).to have_content(post.title)
-          expect(page).to have_content(post.text)
+      puts page.body
+      first_post = posts[0]
+      second_post = posts[1]
+      third_post = posts[2]
+      if user.posts.any?
+        if first_post
+          expect(page).to have_content(first_post.title)
         end
-      else 
-        expect(page).to have_selector('a', text:'See all posts')
-      end
+        if second_post
+          expect(page).to have_content(second_post.title)
+        end
+        if third_post
+          expect(page).to have_content(third_post.title)
+        end
+        expect(page).to have_selector('a', text: 'See all posts')
+      else
+        expect(page).to have_content('This user has no post at the moment')
+      end      
     end
   end
 end
