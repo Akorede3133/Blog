@@ -1,10 +1,9 @@
 <li class="post--item">
   <div class="post--content">
-    <h5><%= post.title %></h5>
+    <h5><%= link_to post.title, user_post_path(user, post) %></h5>
     <p><%= slice_text(post.text) %></p>
   </div>
   <div class="likes--and--comments">
-    <%= link_to "view post", user_post_path(user, post) %>
     <p>
       <span>Comments: <%= post.comments_counter %></span>
       <span>Likes:  <%= post.likes_counter %></span>

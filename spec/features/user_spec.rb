@@ -45,7 +45,7 @@ RSpec.describe 'User', type: :feature do
     it "show user name" do
       user = User.first
       visit user_path(user)
-        expect(page).to have_content(user.name)
+      expect(page).to have_content(user.name)
     end
 
     it "show number of posts by the user" do
@@ -63,7 +63,6 @@ RSpec.describe 'User', type: :feature do
       user = User.first
       posts = user.most_recent_posts
       visit user_path(user)
-      puts page.body
       first_post = posts[0]
       second_post = posts[1]
       third_post = posts[2]
@@ -81,6 +80,29 @@ RSpec.describe 'User', type: :feature do
       else
         expect(page).to have_content('This user has no post at the moment')
       end      
+    end
+
+    it "shows a button that lets me view all of a user's posts." do
+      user = User.first
+      visit user_path(user)
+      expect(page).to have_selector('a', text: 'See all posts')
+    end
+  end
+  context "Clicks" do
+    it "redirects me to the user's post  on clicking on a post" do
+      user = User.first
+      visit user_path(user)
+      user.most_recent_posts.each do |post|
+        click_link post.title
+        expect(page).to have_current_path(user_post_path(user, post))
+        visit user_path(user)
+      end
+    end
+    it "redirects me to the user's post clicking on see all posts" do
+      user = User.first
+      visit user_path(user)
+      click_link 'See all posts'
+      expect(page).to have_current_path(user_posts_path(user))
     end
   end
 end
