@@ -1,22 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe 'User', type: :feature do
-  context "index page" do
-    it "show username of all other users" do
+  context 'index page' do
+    it 'show username of all other users' do
       visit root_path
       users = User.all
       users.each do |user|
         expect(page).to have_content(user.name)
       end
     end
-    it "shows the profile picture for each user" do
+    it 'shows the profile picture for each user' do
       visit root_path
       users = User.all
       users.each do |user|
         expect(page).to have_selector("img[src='#{user.photo}']")
       end
     end
-    it "shows the number of posts for each user" do
+    it 'shows the number of posts for each user' do
       visit root_path
       users = User.all
       users.each do |user|
@@ -35,29 +35,37 @@ RSpec.describe 'User', type: :feature do
     end
   end
 
-  context "show page" do
+  context 'show page' do
     it 'shows profile picture' do
       user = User.first
       visit user_path(user)
-        expect(page).to have_selector("img[src='#{user.photo}']")
+      expect(page).to have_selector("img[src='#{user.photo}']")
     end
 
-    it "show user name" do
+    it 'show user name' do
       user = User.first
       visit user_path(user)
       expect(page).to have_content(user.name)
     end
 
-    it "show number of posts by the user" do
+    it 'show number of posts by the user' do
       user = User.first
       visit user_path(user)
       expect(page).to have_content("Number of posts: #{user.posts_counter}")
     end
 
-    it "show user bio" do
+    it "shows a button that lets me view all of a user's posts." do
       user = User.first
       visit user_path(user)
-      expect(page).to have_content("#{user.bio}")
+      expect(page).to have_selector('a', text: 'See all posts')
+    end
+  end
+
+  context 'show' do
+    it 'show user bio' do
+      user = User.first
+      visit user_path(user)
+      expect(page).to have_content(user.bio.to_s)
     end
     it 'displays the first three posts and a "Show All" button' do
       user = User.first
@@ -67,28 +75,16 @@ RSpec.describe 'User', type: :feature do
       second_post = posts[1]
       third_post = posts[2]
       if user.posts.any?
-        if first_post
-          expect(page).to have_content(first_post.title)
-        end
-        if second_post
-          expect(page).to have_content(second_post.title)
-        end
-        if third_post
-          expect(page).to have_content(third_post.title)
-        end
+        expect(page).to have_content(first_post.title) if first_post
+        expect(page).to have_content(second_post.title) if second_post
+        expect(page).to have_content(third_post.title) if third_post
         expect(page).to have_selector('a', text: 'See all posts')
       else
         expect(page).to have_content('This user has no post at the moment')
-      end      
-    end
-
-    it "shows a button that lets me view all of a user's posts." do
-      user = User.first
-      visit user_path(user)
-      expect(page).to have_selector('a', text: 'See all posts')
+      end
     end
   end
-  context "Clicks" do
+  context 'Clicks' do
     it "redirects me to the user's post  on clicking on a post" do
       user = User.first
       visit user_path(user)
