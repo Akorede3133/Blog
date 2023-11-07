@@ -5,7 +5,7 @@ RSpec.describe 'Post', type: :feature do
   let(:post) { Post.new(author: user, title: 'Hello', text: 'This is my first post') }
 
   before { user.save }
-  
+
   context 'index page' do
     it "show user's username" do
       visit user_posts_path(user)
