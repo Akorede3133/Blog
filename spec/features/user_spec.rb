@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'User', type: :feature do
+    user_1 =  User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
+    user_1_post = Post.create(author: user_1, title: 'Hello', text: 'This is my first post')
+    user_2 =  User.create(name: 'Jerry', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
+    user_2_post = Post.create(author: user_2, title: 'Hello', text: 'This is my first post')
   context 'index page' do
     it 'show username of all other users' do
       visit root_path
