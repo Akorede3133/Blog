@@ -9,8 +9,9 @@
     </section>
     <section class="post--content">
       <p><%= @post.text %></p>
-      <%= button_to 'Delete post', user_post_path(current_user, @post), method: :delete %>
-
+      <% if can? :destroy, @post %>
+        <%= button_to 'Delete post', user_post_path(current_user, @post), method: :delete %>
+      <% end %>
     </section>
     <div class="like--container">
       <% if user_already_liked?(@post, current_user) %>

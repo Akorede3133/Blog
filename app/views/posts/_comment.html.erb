@@ -1,4 +1,6 @@
 <li>
   <p><%= comment.user.name %>: <span><%= comment.text %></span></p>
-  <%= button_to 'delete comment', user_post_comment_path(current_user, post, comment), method: :delete %>
+  <% if can? :destroy, comment %>
+     <%= button_to 'delete comment', user_post_comment_path(current_user, post, comment), method: :delete %>
+  <% end %>
 </li>

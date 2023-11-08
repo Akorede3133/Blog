@@ -1,5 +1,5 @@
 class Comment < ApplicationRecord
-  after_save :update_comments_counter
+  after_commit :update_comments_counter
   belongs_to :user
   belongs_to :post
 
