@@ -11,7 +11,6 @@ class User < ApplicationRecord
   validates :posts_counter, comparison: { greater_than_or_equal_to: 0 }
   validates :username, presence: true, uniqueness: true
 
-
   def most_recent_posts
     posts.order(created_at: :desc).limit(3)
   end
