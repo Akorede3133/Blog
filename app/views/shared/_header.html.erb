@@ -4,10 +4,5 @@
     <li>
       <%= link_to 'users', users_path%>
     </li>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to 'create post', new_user_post_path(current_user)%>
-      </li>
-    <% end %>
   </ul>
 </header>
