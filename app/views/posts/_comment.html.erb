@@ -1,3 +1,4 @@
 <li>
   <p><%= comment.user.name %>: <span><%= comment.text %></span></p>
+  <%= button_to 'delete comment', user_post_comment_path(current_user, post, comment), method: :delete %>
 </li>

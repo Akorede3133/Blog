@@ -9,6 +9,8 @@
     </section>
     <section class="post--content">
       <p><%= @post.text %></p>
+      <%= button_to 'Delete post', user_post_path(current_user, @post), method: :delete %>
+
     </section>
     <div class="like--container">
       <% if user_already_liked?(@post, current_user) %>
@@ -23,7 +25,7 @@
      <ul class="comments--container">
       <% if @post.comments.count > 0 %>
         <% @post.comments.each do |comment| %>
-          <%= render 'comment', comment: comment %>
+          <%= render 'comment', comment: comment, post: @post %>
         <% end %>
       <% else %>
         <h3>This post has no comment at the moment<h3>
